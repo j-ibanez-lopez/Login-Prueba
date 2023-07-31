@@ -1,0 +1,112 @@
+<div class = 'contenido'>
+  <div class = 'elementos'>
+    <h1> Registrar </h1>
+  </div>
+
+  <div class = 'elementos'>
+    <form [formGroup] = 'registro' (ngSubmit) = 'ingreso()'>
+      <mat-form-field>
+        <mat-label>
+          Nombre paciente
+        </mat-label>
+
+        <input matInput formControlName = 'nombre' type = "text" placeholder = 'Ingrese el nombre del paciente.'>
+
+        <mat-hint *ngIf = 'registro.controls["nombre"].hasError("required") &&
+        registro.controls["nombre"].touched'>
+          <mat-icon>
+            warning
+          </mat-icon>
+          <p>
+            El nombre es obligatorio.
+          </p>
+        </mat-hint>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>
+          Apellido paciente
+        </mat-label>
+
+        <input matInput formControlName = 'apellido' type = "text" placeholder = 'Ingrese el apellido del paciente.'>
+
+        <mat-hint *ngIf = 'registro.controls["apellido"].hasError("required") &&
+        registro.controls["apellido"].touched'>
+          <mat-icon>
+            warning
+          </mat-icon>
+          <p>
+            El apellido es obligatorio.
+          </p>
+        </mat-hint>
+      </mat-form-field>
+      <!--
+      <mat-form-field>
+        <mat-label>
+          edad paciente
+        </mat-label>
+
+        <input matInput formControlName = 'edad' type = "number" placeholder = 'Ingrese la edad del paciente.'>
+
+        <mat-hint *ngIf = 'registro.controls["edad"].hasError("required") &&
+        registro.controls["edad"].touched'>
+          <mat-icon>
+            warning
+          </mat-icon>
+          <p>
+            La edad es obligatoria.
+          </p>
+        </mat-hint>
+      </mat-form-field> -->
+
+      <mat-form-field>
+        <mat-label>
+          Contraseña
+        </mat-label>
+
+        <input matInput formControlName = 'password' type = 'password' placeholder = 'Ingrese su nueva contraseña.'>
+        <mat-hint *ngIf = 'registro.controls["password"].hasError("required") &&
+        registro.controls["password"].touched'>
+          <mat-icon>
+            warning
+          </mat-icon>
+          <p>
+            La contraseña es obligatorio.
+          </p>
+        </mat-hint>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>
+          Repetir contraseña
+        </mat-label>
+
+        <input matInput formControlName = 'repetir_password' type = 'password' placeholder = 'Ingrese nuevamente la contraseña.'>
+        <mat-hint *ngIf = 'registro.controls["repetir_password"].hasError("required") &&
+        registro.controls["repetir_password"].touched'>
+          <mat-icon>
+            warning
+          </mat-icon>
+          <p>
+            Necesita ingresar nuevamente la contraseña para poder registrarse.
+          </p>
+        </mat-hint>
+      </mat-form-field>
+
+      <span *ngIf = 'registro.get("password")?.value != registro.get("repetir_password")?.value'>
+        <p>
+          Las contraseñas no coinciden
+        </p>
+      </span>
+
+      <div class = 'elementos'>
+        <button mat-raised-button color = 'primary' type = "submit" [disabled] = 'registro.invalid || registro.get("password")?.value != registro.get("repetir_password")?.value'>
+          Registrar
+        </button>
+        <button mat-raised-button color = 'warn' routerLink = '/login'>
+          Volver
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+
+<div  lass = 'contenedor'>
+  <div class = 'wrapper'>
+    <!-- la clase logo debiera utilizarse en esta imagen. -->
+    <img src = '../../../assets/padlock.png' alt = 'imagen login'>
+    <p> Este es un login </p>
+  </div>
+
+
+  <div class = 'wrapper'>
+    <div>
+      <form [formGroup] = "formulario" (ngSubmit) = 'ingreso()'>
+
+          <mat-form-field>
+            <mat-label>
+              Nombre persona
+            </mat-label>
+            <input matInput type="text" formControlName = 'nombre_usuario' placeholder = 'Ingrese su nombre'>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>
+              Password
+            </mat-label>
+            <input matInput formControlName = 'pass' placeholder = 'Ingrese su contraseña'>
+          </mat-form-field>
+
+        <div>
+          <button mat-raised-button color = 'primary' type = "submit"> Ingresar </button>
+        </div>
+      </form>
+
+      <p>
+        ¿Aún no tienes cuentas? <a href = '/registrar'> Registrar</a>
+      </p>
+    </div>
+  </div>
+
+</div>

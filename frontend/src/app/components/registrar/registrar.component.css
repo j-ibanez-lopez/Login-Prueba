@@ -1,0 +1,23 @@
+.body
+{
+  max-width: 350px;
+  width: 100%;
+  text-align: center;
+}
+
+.contenido {
+  margin: 3rem auto;
+}
+
+.elementos
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-form-field
+{
+  margin: 1rem;
+  display: block;
+}
